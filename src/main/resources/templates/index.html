@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css" rel="stylesheet"/>
+
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"/>
+
+    <link href="../../resources/css/style.css" rel="stylesheet"/>
+
+    <title>Gestão de Loja</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed"
+                            data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                            aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <a class="navbar-brand" href="#">Java II</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">Home</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Entrar</a></li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                Links
+                                <span class="caret"></span>
+                            </a>
+
+                            <ul class="dropdown-menu">
+                                <li><a href="http://www.algaworks.com" target="_blank">Site</a></li>
+                                <li><a href="http://www.facebook.com/algaworks" target="_blank">Facebook</a></li>
+                                <li><a href="http://www.youtube.com/algaworks" target="_blank">YouTube</a></li>
+                                <li><a href="http://github.com/algaworks" target="_blank">Github</a></li>
+                                <li><a href="http://blog.algaworks.com/" target="_blank">Nosso Blog</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="container">
+        <form method="POST" action="/demo/user">
+            <div class="panel panel-default" >
+                <div class="panel-heading">
+                    Login
+                </div>
+
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label" for="usuario">Usuário: </label>
+                                <input class="form-control" id="usuario"/>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-8">
+                            <div class="form-group">
+                                <label class="control-label" for="senha">Senha: </label>
+                                <input class="form-control" id="senha"/>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <button class="btn btn-default" type="submit">
+                            <span class="fa fa-search"></span>
+                            Entrar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </section>
+
+    <form action="/save" method="POST">
+        <input name="description"/>
+
+    </form>
+
+    <ul>
+        <li th:each="product : ${products}" th:text="${product.description}"></li>
+    </ul>
+</body>
+</html>
